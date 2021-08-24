@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>xss</title>
+  </head>
+  <body>
+
+  <h3>He <%= user%> , pleas enter your favorite Food</h3>
+  <div>
+  <p>take me for a test :) </p><button id="namebut" onclick="addname()">test</button>
+  </div>
+  <p id = "message"></p> 
+  <form action="/dashboard" method="POST">
+   
+  <div>
+      <input 
+          type="food" 
+          id="food" 
+          name="food" 
+          placeholder="Food" 
+          required
+      />
+  </div>
+
+   <button id="red">Add to all foods</button>
+   <input type="hidden" name="_csrf" value="<%= csrfToken  %>">
+  </form>
+  
+  <script src="/dashboard.js"></script>
+
+  <div>
+  <a href="/allfoods"> Go to Food</a>
+  </div>
+  <div>
+  <a href="/logout"> Logout Here</a>
+  </div>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css"
+  />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <% if (members.length > 0) { %>
+    <div class="grid">
+        <% for(member of members) { %>
+                    <p><b><%= member.name %></b>  || <b> <%= member.food %></b></p>
+                    <!-- and so on for other properties -->
+        <% } %>
+    </div>
+<% } else { %>
+    <h3>No members found!</h3>
+<% } %>
+
+<form action="/allfoods" method="POST">
+   
+  <div>
+      <input 
+          type="food" 
+          id="food" 
+          name="food" 
+          placeholder="Food" 
+          required
+      />
+  </div>
+
+   <button id="chaing">Chainge food</button>
+   <p id = "message"></p> 
+   <input type="hidden" name="_csrf" value="<%= csrfToken  %>">
+  </form>
+
+
+<a href="/dashboard"> Go to Dashboard</a>
+
+
+</body>
+</html>
